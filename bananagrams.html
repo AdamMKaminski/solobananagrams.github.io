@@ -1,0 +1,752 @@
+<head>
+	<script>
+
+		var letter_count = 0;
+		var stop_clock = false;
+
+		function generate_letters(){
+
+			var num_of_letters = document.getElementById("set_num_amount").value;
+			var goal = document.getElementById("set_goal").value;
+
+			if (num_of_letters > 0) {
+				for (var i = 0; i < num_of_letters; i++) {
+					add_one_letter();
+				}
+				if (goal > 0) {
+					stop_clock = false;
+					start_clock();
+				}
+			}
+			else {
+				document.getElementById("letters").innerHTML = "a viable number please! reset";
+			}
+		}
+		function start_clock() {
+			
+			var start = new Date().getTime();
+
+			var x = setInterval(function() {
+				var now = new Date().getTime();
+				document.getElementById("timer").innerHTML = now - start;
+
+				if (document.getElementById("letters").innerHTML == "goal met") {
+					clearInterval(x);
+				}
+				if (stop_clock == true) {
+					clearInterval(x);
+				}
+			});
+		}
+		function add_one_letter(){
+
+			var chars = "aaaaaaaaaaaaabbbcccddddddeeeeeeeeeeeeeeeeeefffgggghhhiiiiiiiiiiiijjkklllllmmmnnnnnnnnooooooooooopppqqrrrrrrrrrsssssstttttttttuuuuuuvvvwwwxxyyyzz"
+
+			var rnum = Math.floor(Math.random() * chars.length);
+			var new_letter = chars.substring(rnum,rnum+1);
+
+			document.getElementById("letters").innerHTML += " " + new_letter;
+
+			letter_count += 1;
+
+			check_for_win(letter_count);
+		}
+		function check_for_win(x){
+			if (x != 1) {
+				if ((x - 1) == document.getElementById("set_goal").value) {
+					document.getElementById("letters").innerHTML = "goal met";
+				}
+				else {
+					document.getElementById("count").innerHTML = letter_count;
+				}
+			}
+			else {
+					document.getElementById("count").innerHTML = letter_count;
+				}
+		}
+		function reset(){
+			stop_clock = true;
+			letter_count = 0;
+			document.getElementById("letters").innerHTML = "";
+			document.getElementById("timer").innerHTML = "";
+			document.getElementById("count").innerHTML = "";
+		}
+	</script>
+</head>
+
+<html>
+	<header>
+		<b>solo bananagrams</b>
+		<div><img src="bananas.jpg" height="150" width="200" id="bananaimage"></div>
+	</header>
+	<body>
+		<body bgcolor="#a8a8c4">
+		<div> ------------------------------------------------- </div>
+		set letter goal (optional): <input type="number" id="set_goal" style="width: 75px;" />
+		<div id="timer"></div>
+		<div id="count"></div>
+		number of starting letters: <input type="number" id="set_num_amount" style="width: 50px;" />
+		<input type="button" value="generate" onclick="generate_letters()">
+		<input type="button" value="add 1" onclick="add_one_letter()">
+		<input type="button" value="reset" onclick="reset()">
+		<br></br>
+		<b>letters</b>
+		<div> ------------------------------------------------- </div>
+		<div id="letters" contenteditable="true" style="font-size:50px"></div>
+		<b>game board</b>
+		<div> ------------------------------------------------- </div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<div>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+			<input type="text" id="end" style="width: 15px;"/>
+		</div>
+		<br></br>
+		<b>stats</b>
+		<div> ------------------------------------------------- </div>
+		<pre class="row1" contenteditable="true">
+			      goal      time
+			  ---------------------
+	       		1|             
+			  ---------------------   
+	                2|                
+			  ---------------------
+	                3|              
+			  ---------------------
+	       		4|                
+			  ---------------------
+	       		5|            
+			  ---------------------
+	       		6|            
+			  ---------------------
+	       		7|            
+			  ---------------------
+	       		8|	            
+			  ---------------------
+	       		9|            
+			  ---------------------
+	      	       10|           
+			  ---------------------
+		</pre>
+		<br></br>
+		<br></br>
+	</body>
+</html>
