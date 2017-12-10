@@ -17,6 +17,9 @@
 					stop_clock = false;
 					start_clock();
 				}
+				else if (goal <= 0) {
+					document.getElementById("letters").innterHTML = "a viable goal please! reset";
+				}
 			}
 			else {
 				document.getElementById("letters").innerHTML = "a viable number please! reset";
@@ -58,22 +61,10 @@
 				}
 				else if (document.getElementById("set_goal").value > 0) {
 					document.getElementById("count").innerHTML = letter_count;
-				}
-				else if (document.getElementById("set_goal").value < 0) {
-					document.getElementById("letters").innterHTML = "a viable goal please! reset";
-				}
-				else if (document.getElementById("set_goal").value == 0) {
-					document.getElementById("letters").innterHTML = "a viable goal please! reset";
 				}	
 			}
 			else if (document.getElementById("set_goal").value > 0) {
 				document.getElementById("count").innerHTML = letter_count;
-			}
-			else if (document.getElementById("set_goal").value < 0) {
-				document.getElementById("letters").innterHTML = "a viable goal please! reset";
-			}
-			else if (document.getElementById("set_goal").value == 0) {
-				document.getElementById("letters").innterHTML = "a viable goal please! reset";
 			}
 		}
 		function reset(){
