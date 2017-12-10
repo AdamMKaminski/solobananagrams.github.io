@@ -17,7 +17,10 @@
 						add_one_letter();
 					}
 				}
-				else if (goal <= 0) {
+				else if (goal < 0) {
+					document.getElementById("letters").innterHTML = "a viable goal please! reset";
+				}
+				else if (goal == 0) {
 					document.getElementById("letters").innterHTML = "a viable goal please! reset";
 				}
 				else {
