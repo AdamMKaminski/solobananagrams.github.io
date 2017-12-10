@@ -10,15 +10,20 @@
 			var goal = document.getElementById("set_goal").value;
 
 			if (num_of_letters > 0) {
-				for (var i = 0; i < num_of_letters; i++) {
-					add_one_letter();
-				}
 				if (goal > 0) {
 					stop_clock = false;
 					start_clock();
+					for (var i = 0; i < num_of_letters; i++) {
+						add_one_letter();
+					}
 				}
 				else if (goal <= 0) {
 					document.getElementById("letters").innterHTML = "a viable goal please! reset";
+				}
+				else {
+					for (var i = 0; i < num_of_letters; i++) {
+						add_one_letter();
+					}
 				}
 			}
 			else {
