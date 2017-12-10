@@ -56,13 +56,25 @@
 				if ((x - 1) == document.getElementById("set_goal").value) {
 					document.getElementById("letters").innerHTML = "goal met";
 				}
-				else {
+				else if (document.getElementById("set_goal").value > 0) {
 					document.getElementById("count").innerHTML = letter_count;
 				}
+				else if (document.getElementById("set_goal").value < 0) {
+					else if (document.getElementById("letters").innterHTML = "a viable goal please! reset";
+				}
+				else if (document.getElementById("set_goal").value == 0) {
+					else if (document.getElementById("letters").innterHTML = "a viable goal please! reset";
+				}	
 			}
-			else {
-					document.getElementById("count").innerHTML = letter_count;
-				}
+			else if (document.getElementById("set_goal").value > 0) {
+				document.getElementById("count").innerHTML = letter_count;
+			}
+			else if (document.getElementById("set_goal").value < 0) {
+				else if (document.getElementById("letters").innterHTML = "a viable goal please! reset";
+			}
+			else if (document.getElementById("set_goal").value == 0) {
+				else if (document.getElementById("letters").innterHTML = "a viable goal please! reset";
+			}
 		}
 		function reset(){
 			stop_clock = true;
