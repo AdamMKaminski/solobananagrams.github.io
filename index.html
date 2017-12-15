@@ -9,12 +9,14 @@
 			var num_of_letters = document.getElementById("set_num_amount").value;
 			var goal = document.getElementById("set_goal").value;
 
+			var warming_up = true;
+			
 			if (num_of_letters > 0) {
 				if (goal > 0) {
 					stop_clock = false;
 					start_clock();
 					for (var i = 0; i < num_of_letters; i++) {
-						add_one_letter();
+						add_one_letter(warming_up);
 					}
 				}
 				if (goal < 0) {
@@ -25,7 +27,7 @@
 				//}
 				if (goal == 0) {
 					for (var i = 0; i < num_of_letters; i++) {
-						add_one_letter();
+						add_one_letter(warming_up);
 					}
 				}
 			}
@@ -49,7 +51,7 @@
 				}
 			});
 		}
-		function add_one_letter(){
+		function add_one_letter(warming_up){
 
 			var chars = "aaaaaaaaaaaaabbbcccddddddeeeeeeeeeeeeeeeeeefffgggghhhiiiiiiiiiiiijjkklllllmmmnnnnnnnnooooooooooopppqqrrrrrrrrrsssssstttttttttuuuuuuvvvwwwxxyyyzz"
 
@@ -62,10 +64,15 @@
 					letter_count += 1;
 					document.getElementById("letters").innerHTML += " " + new_letter;
 				}
-				else {
+				else if (warming_up){
 					letter_count -= 1;
 					letter_count -= 1;
 					document.getElementById("letters").innerHTML += " " + new_letter;
+				}
+				else {
+					document.getElementById("letters").innerHTML += " " + new_letter;
+
+					letter_count += 1;
 				}
 			}
 			else {
