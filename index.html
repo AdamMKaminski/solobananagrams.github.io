@@ -56,10 +56,24 @@
 			var rnum = Math.floor(Math.random() * chars.length);
 			var new_letter = chars.substring(rnum,rnum+1);
 
-			document.getElementById("letters").innerHTML += " " + new_letter;
+			var goal = document.getElementById("set_goal").value;
+			if (goal != 0) {
+				if (document.getElementById("letters").innerHTML == "") {
+					letter_count += 1;
+					document.getElementById("letters").innerHTML += " " + new_letter;
+				}
+				else {
+					letter_count -= 1;
+					letter_count -= 1;
+					document.getElementById("letters").innerHTML += " " + new_letter;
+				}
+			}
+			else {
+				document.getElementById("letters").innerHTML += " " + new_letter;
 
-			letter_count += 1;
-
+				letter_count += 1;
+			}
+			
 			check_for_win(letter_count);
 		}
 		function check_for_win(x){
