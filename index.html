@@ -8,7 +8,6 @@
 
 			var num_of_letters = document.getElementById("set_num_amount").value;
 			var goal = document.getElementById("set_goal").value;
-
 			var warming_up = true;
 			
 			if (num_of_letters > 0) {
@@ -51,7 +50,11 @@
 				}
 			});
 		}
-		function add_one_letter(warming_up){
+		function call_add_one_letter() {
+			var warming_up = false;
+			add_one_letter(warming_up);
+		}
+		function add_one_letter(x){
 
 			var chars = "aaaaaaaaaaaaabbbcccddddddeeeeeeeeeeeeeeeeeefffgggghhhiiiiiiiiiiiijjkklllllmmmnnnnnnnnooooooooooopppqqrrrrrrrrrsssssstttttttttuuuuuuvvvwwwxxyyyzz"
 
@@ -60,14 +63,16 @@
 
 			var goal = document.getElementById("set_goal").value;
 			if (goal != 0) {
-				if (document.getElementById("letters").innerHTML == "") {
-					letter_count += 1;
-					document.getElementById("letters").innerHTML += " " + new_letter;
-				}
-				else if (warming_up){
-					letter_count -= 1;
-					letter_count -= 1;
-					document.getElementById("letters").innerHTML += " " + new_letter;
+				if (x == false) {
+					if (document.getElementById("letters").innerHTML == "") {
+						letter_count += 1;
+						document.getElementById("letters").innerHTML += " " + new_letter;
+					}
+					else {
+						letter_count -= 1;
+						letter_count -= 1;
+						document.getElementById("letters").innerHTML += " " + new_letter;
+					}
 				}
 				else {
 					document.getElementById("letters").innerHTML += " " + new_letter;
@@ -119,7 +124,7 @@
 		<div id="count"></div>
 		number of starting letters: <input type="number" id="set_num_amount" style="width: 50px;" />
 		<input type="button" value="generate" onclick="generate_letters()">
-		<input type="button" value="add 1" onclick="add_one_letter()">
+		<input type="button" value="add 1" onclick="call_add_one_letter()">
 		<input type="button" value="reset" onclick="reset()">
 		<br></br>
 		<b>letters</b>
